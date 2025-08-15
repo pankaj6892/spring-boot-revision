@@ -1,8 +1,14 @@
 package com.impankaj.firstspringbootcontroller;
 
 public class OrderService {
-    public void placeOrder(String orderDetails) {
-        StripePaymentService stripePaymentService = new StripePaymentService();
-        stripePaymentService.processPayment(50.0);
+
+    private PaymentService paymentService;
+
+    public OrderService(PaymentService paymentService) {
+     this.paymentService = paymentService;
+    }
+
+    public void placeOrder() {
+       paymentService.processPayment(50.0);
     }
 }
