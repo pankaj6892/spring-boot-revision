@@ -184,6 +184,21 @@ Java
     @Qualifier("emailNotificationService")
     private NotificationService notificationService;
 
+-------------------
 
+The **@Value** annotation in Spring Boot is used to inject values from external sources into fields, method parameters, or constructors within a Spring-managed bean. This enables the configuration of an application without directly modifying the source code, leveraging various external sources for property values. 
+Key features and uses of @Value:
+Property Injection:
+It allows injecting values from property files (e.g., application.properties, application.yml), environment variables, system properties, or even literal values and SpEL (Spring Expression Language) expressions.
+Syntax for Property Keys:
+To inject a value from a property file, the syntax ${property.key} is used within the @Value annotation, where property.key corresponds to the key defined in the property file.
+Default Values:
+@Value supports providing a default value in case the specified property key is not found in any of the configured property sources. This is done by using the syntax ${property.key:defaultValue}.
+Use Cases:
+Injecting single configuration properties like database connection strings, API keys, or specific application settings.
+Providing default values for properties that might not always be present.
+Injecting values from system properties or environment variables for dynamic configuration.
+Limitations and Alternatives:
+While @Value is convenient for injecting individual properties, it can become less manageable for a large number of related properties. For such scenarios, the **@ConfigurationProperties** annotation is a more structured and recommended alternative, as it allows binding a set of related properties to a dedicated configuration class, providing better organization and often improved tooling support (like IDE autocompletion).
 
 
