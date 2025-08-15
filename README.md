@@ -191,7 +191,9 @@ Key features and uses of @Value:
 Property Injection:
 It allows injecting values from property files (e.g., application.properties, application.yml), environment variables, system properties, or even literal values and SpEL (Spring Expression Language) expressions.
 Syntax for Property Keys:
+
 To inject a value from a property file, the syntax ${property.key} is used within the @Value annotation, where property.key corresponds to the key defined in the property file.
+
 Default Values:
 @Value supports providing a default value in case the specified property key is not found in any of the configured property sources. This is done by using the syntax ${property.key:defaultValue}.
 Use Cases:
