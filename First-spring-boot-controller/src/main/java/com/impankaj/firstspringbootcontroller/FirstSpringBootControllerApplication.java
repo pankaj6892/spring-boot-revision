@@ -9,7 +9,8 @@ public class FirstSpringBootControllerApplication {
     public static void main(String[] args) {
 //        SpringApplication.run(FirstSpringBootControllerApplication.class, args);
 
-        OrderService orderService = new OrderService(new PaypalPaymentService());
+        OrderService orderService = new OrderService();
+        orderService.setPaymentService(new PaypalPaymentService());
         orderService.placeOrder();
     }
 
