@@ -20,7 +20,7 @@ Bean is just a normal java object managed by Spring.
 <img width="2108" height="794" alt="image" src="https://github.com/user-attachments/assets/c31edf54-2830-4039-afb0-4f931456e7cd" />
 
 -----------------
-The @Service annotation in Spring Boot is a specialization of the @Component annotation, used to indicate that a class belongs to the service layer of an application. This layer typically encapsulates the business logic and orchestrates interactions between the presentation layer (e.g., controllers) and the data access layer (e.g., repositories).
+The **@Service** annotation in Spring Boot is a specialization of the @Component annotation, used to indicate that a class belongs to the service layer of an application. This layer typically encapsulates the business logic and orchestrates interactions between the presentation layer (e.g., controllers) and the data access layer (e.g., repositories).
 Key aspects of @Service:
 Semantic Meaning:
 It provides clear semantic meaning, indicating that the annotated class is a service provider responsible for handling business functionalities. This improves code readability and organization.
@@ -54,7 +54,7 @@ public class UserService {
 
 ----------------
 
-The @Component annotation in Spring Boot is a core annotation used to define Spring-managed beans. It indicates that the annotated class is a component and should be automatically detected and registered as a Spring Bean within the application context. 
+The **@Component** annotation in Spring Boot is a core annotation used to define Spring-managed beans. It indicates that the annotated class is a component and should be automatically detected and registered as a Spring Bean within the application context. 
 Key aspects of @Component:
 Automatic Bean Registration:
 When a class is annotated with @Component, Spring's component scanning mechanism automatically detects it and creates an instance (bean) of that class, managing its lifecycle.
@@ -69,7 +69,7 @@ The @ComponentScan annotation, often found on the main application class in Spri
 
 ----------------
 
-The @Repository annotation in Spring Boot is a specialization of the @Component annotation, used to indicate that a class is a repository.
+The **@Repository** annotation in Spring Boot is a specialization of the @Component annotation, used to indicate that a class is a repository.
 Here's a breakdown of its purpose and usage:
 Data Access Layer:
 It marks a class responsible for interacting with a database or other data sources. This class typically encapsulates storage, retrieval, search, update, and delete (CRUD) operations on objects, effectively acting as a Data Access Object (DAO).
@@ -82,7 +82,7 @@ When working with Spring Data JPA, you often define repository interfaces that e
 In essence, @Repository clearly defines the role of a class in the persistence layer, facilitates automatic exception handling, and integrates seamlessly with Spring's dependency injection and data access mechanisms.
 
 -----------------
-The @Controller annotation in Spring Boot is a stereotype annotation that marks a class as a Spring MVC controller. This annotation indicates that the class is responsible for handling incoming HTTP requests and preparing a model to be rendered as a view (e.g., an HTML page, a JSP, or a Thymeleaf template).
+The **@Controller** annotation in Spring Boot is a stereotype annotation that marks a class as a Spring MVC controller. This annotation indicates that the class is responsible for handling incoming HTTP requests and preparing a model to be rendered as a view (e.g., an HTML page, a JSP, or a Thymeleaf template).
 Key aspects of @Controller:
 Web Request Handling:
 It is used in combination with handler methods, typically annotated with @RequestMapping (or its specialized versions like @GetMapping, @PostMapping, etc.), to map specific URLs to methods within the controller.
@@ -110,7 +110,7 @@ public class HomeController {
 }
 -----------------
 
-The @Autowired annotation in Spring is a mechanism for automatic dependency injection. It instructs the Spring container to automatically resolve and inject dependencies into a class, eliminating the need for manual configuration of these dependencies.
+The **@Autowired** annotation in Spring is a mechanism for automatic dependency injection. It instructs the Spring container to automatically resolve and inject dependencies into a class, eliminating the need for manual configuration of these dependencies.
 How it works:
 When Spring encounters a field, constructor, or setter method annotated with @Autowired, it attempts to find a matching bean in its application context and inject it. The matching typically occurs by type, meaning Spring looks for a bean whose type is compatible with the dependency being injected.
 Where it can be used:
@@ -161,6 +161,28 @@ Multiple matching beans:
 If multiple beans of the same type are found, Spring will throw an exception unless the @Qualifier annotation is used to specify which specific bean to inject.
 Required dependencies:
 By default, @Autowired dependencies are required. If a matching bean is not found, an exception will be thrown. This behavior can be changed by setting required = false in the annotation. 
+
+------------
+
+The **@Qualifier** annotation in Spring Boot is used to resolve ambiguity when multiple beans of the same type are available for dependency injection. When Spring's @Autowired annotation attempts to inject a dependency and finds more than one bean of the required type in the application context, it cannot determine which one to inject, leading to an error. 
+To address this, @Qualifier is used in conjunction with @Autowired to specify the exact bean to be injected. The name of the desired bean is passed as a value to the @Qualifier annotation, explicitly instructing Spring which specific bean to use.
+Key aspects of @Qualifier:
+Resolving Ambiguity:
+Its primary purpose is to differentiate between multiple beans of the same type, especially when multiple implementations of an interface exist.
+Used with @Autowired:
+It always works in conjunction with @Autowired to provide a more specific instruction for dependency injection.
+Bean Naming:
+The value provided to @Qualifier typically corresponds to the name of the target bean. By default, Spring assigns a bean name that is the class name with the first letter in lowercase (e.g., MyClass becomes myClass).
+Application:
+It can be applied to fields, constructors, or setter methods where dependency injection is being performed.
+Example Scenario:
+Consider an interface NotificationService with two implementations, EmailNotificationService and SmsNotificationService. When injecting NotificationService into a class, Spring would encounter ambiguity. Using @Qualifier allows you to specify whether you want emailNotificationService or smsNotificationService to be injected.
+
+Java
+
+    @Autowired
+    @Qualifier("emailNotificationService")
+    private NotificationService notificationService;
 
 
 
