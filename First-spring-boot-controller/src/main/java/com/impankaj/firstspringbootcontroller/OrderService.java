@@ -1,8 +1,23 @@
 package com.impankaj.firstspringbootcontroller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+@Service
 public class OrderService {
-    public void placeOrder(String orderDetails) {
-        StripePaymentService stripePaymentService = new StripePaymentService();
-        stripePaymentService.processPayment(50.0);
+
+    private PaymentService paymentService;
+
+
+    public OrderService() {}
+
+    @Autowired
+    public OrderService(@Qualifier("paypalPaymentService") PaymentService paymentService) {
+     this.paymentService = paymentService;
+    }
+
+    public void placeOrder() {
+       paymentService.processPayment(50.0);
     }
 }
