@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: First-spring-boot-application
+
+stripe:
+  apiURL: https://api.stripe.com
+  timeout: 5000
+  enabled: true
+  currencies: INR, USD, EUR, GBP
