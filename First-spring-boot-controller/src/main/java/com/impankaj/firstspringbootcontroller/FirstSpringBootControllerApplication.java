@@ -10,8 +10,10 @@ public class FirstSpringBootControllerApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(FirstSpringBootControllerApplication.class, args);
 
-        var orderService = context.getBean(OrderService.class);
-        orderService.placeOrder();
+        var heavyResource = context.getBean(HeavyResource.class);
+
+//        var orderService = context.getBean(OrderService.class);
+//        orderService.placeOrder();
     }
 
 }
