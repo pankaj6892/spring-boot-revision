@@ -27,6 +27,10 @@ Bean is just a normal java object managed by Spring.
 
 <img width="2232" height="392" alt="image" src="https://github.com/user-attachments/assets/c02cb8a0-0b69-4d03-ac11-f8187f77fa47" />
 
+**Bean Lifecycle Hooks**
+<img width="1820" height="804" alt="image" src="https://github.com/user-attachments/assets/87e6294b-fd31-438f-9af9-374772b5e33a" />
+
+
 
 
 -----------------
