@@ -25,6 +25,9 @@ Bean is just a normal java object managed by Spring.
 
 <img width="1798" height="788" alt="image" src="https://github.com/user-attachments/assets/77d2ea3d-0ed3-4499-b2f2-700c35eb66aa" />
 
+<img width="2232" height="392" alt="image" src="https://github.com/user-attachments/assets/c02cb8a0-0b69-4d03-ac11-f8187f77fa47" />
+
+
 
 -----------------
 The **@Service** annotation in Spring Boot is a specialization of the @Component annotation, used to indicate that a class belongs to the service layer of an application. This layer typically encapsulates the business logic and orchestrates interactions between the presentation layer (e.g., controllers) and the data access layer (e.g., repositories).
