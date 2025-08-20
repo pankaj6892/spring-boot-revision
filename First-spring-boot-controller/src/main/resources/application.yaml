@@ -7,3 +7,6 @@ stripe:
   timeout: 5000
   enabled: true
   currencies: INR, USD, EUR, GBP
+
+payment-gateway:
+  default: paypal
